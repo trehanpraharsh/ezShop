@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: product-ms
+          uri: lb://PRODUCT-MS
+          predicates:
+            - Path=/products/**
+
+        - id: cart-ms
+          uri: lb://CART-MS
+          predicates:
+            - Path=/cart/**
+
+        - id: order-ms
+          uri: lb://ORDER-MS
+          predicates:
+            - Path=/order/**
+
+        - id: payment-ms
+          uri: lb://PAYMENT-MS
+          predicates:
+            - Path=/payment/**
+
+        - id: user-ms
+          uri: lb://USER-MS
+          predicates:
+            - Path=/user/**
+
+        - id: offers-ms
+          uri: lb://OFFERS-MS
+          predicates:
+            - Path=/offers/**
+
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:5173"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
+
+server:
+  port: 8080
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7777/eureka/

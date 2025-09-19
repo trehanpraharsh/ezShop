@@ -1,0 +1,109 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css2?family=Gugi&display=swap");
+
+.logo {
+  font-family: "Gugi", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  @apply bg-gray-100 text-gray-900;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-full font-semibold transition-all duration-200 ease-in-out;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:bg-primary/80;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-white hover:bg-secondary/80;
+}
+
+.input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-200 ease-in-out hover:shadow-lg;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+
+  table {
+    @apply text-sm;
+  }
+
+  th,
+  td {
+    @apply px-2 py-3;
+  }
+}
+
+/* Custom styles for landing section */
+.landing-section {
+  @apply relative overflow-hidden;
+}
+
+.landing-section::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-90;
+}
+
+.landing-content {
+  @apply relative z-10;
+}
+
+.landing-title {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight;
+}
+
+.landing-subtitle {
+  @apply text-xl md:text-2xl mb-6 opacity-90;
+}
+
+.landing-cta {
+  @apply bg-white text-primary px-6 py-3 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors inline-block flex items-center;
+}
+
+.landing-illustration {
+  @apply w-full max-w-md h-auto;
+}
